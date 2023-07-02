@@ -19,3 +19,8 @@ function twiceAsOld(dadYearsOld, sonYearsOld) {
 //firstly, assign the difference of son'a age * 2 from dad's age to doubleAge variable 
 //can simply use ternary operator with condition -> if doubleAge is less than zero (-doubleAge) ? return doubleAge * -1 (in order to return the years in a postive number)
 //if doubleAge > 0, then doubleAge will be returned
+
+//Tests:
+twiceAsOld(62, 22); // 18
+twiceAsOld(60, 20); // 20
+twiceAsOld(47, 15); // 17
