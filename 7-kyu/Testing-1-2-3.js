@@ -24,7 +24,7 @@ var number=function(array){
 
 
 //Tests:
-number(["z", "y", "x", "w", "v"]);
-number(["a", "b", "c"]);
-number([]);
-number(["X"]);
+number(["z", "y", "x", "w", "v"]); // ['1: z', '2: y', '3: x', '4: w', '5: v']
+number(["a", "b", "c"]); // ['1: a', '2: b', '3: c']
+number([]); // []
+number(["X"]); // ['1: X']
