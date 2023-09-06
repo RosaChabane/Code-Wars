@@ -6,17 +6,33 @@
 // expandedForm(70304); // Should return '70000 + 300 + 4'
 // NOTE: All numbers will be whole numbers greater than 0.
 
+
+//My Solution:
+
 function expandedForm(num) {
-  
+  num = num.toString();
+  const placeValueArr = [];
+  let placeVal = 1; //10
+
+  for (let i = 1; i <= num.length; i++) {
+    const digit = num[num.length - i]; // 70304
+    if (digit > 0) {
+        placeValueArr.unshift(digit*placeVal);
+    }
+    placeVal *= 10;
+  }
+  return placeValueArr.join( " + " );
 }
 
-// THOUGHT PROCESS:
-//can possibly grab every 3 digits of num then % 10
-//if first 3 digits starting at num.length-1 does not have num ending in 0, then take 
-//off that last digit and isolate it
-//ex: 310 % 10 = 31, take 1 off and replace with 0, = 30 + 1\
+//My Explanation:
+//first will convert num to string (so we can loop through and access characters in num easily) and assign placeValueArr to empty array and placeVal value of 1 
+//use for loop that loops through num string 
+//use variable 'digit' to keep track of each character, using num[num.length-1] will grab the characters of the string starting from end of string making way to beginning of string
+//if the current digit is greater than 0, then it will be multiplied with placeVal (which gets reassigned by *10 each iteration) and stored into beginning of placeValueArr
+//if the current digit is not greater than zero then nothing will be done with that digit and the placeVal will still increase by *10
+//when loop ends, use join to return the placeValueArr as a string and use '+' as a separator in order to return as expanded form
 
-//OR could use toString and split into array, and maybe use .length to determine the 
-//value of num
-//and have seperate loop that starts at -1+1 of arr and each loop adds '1' + '0' = 10
-//next loop after '10' + '0' = '100'
+//Tests:
+expandedForm(12); // '10 + 2'
+expandedForm(42); // '40 + 2'
+expandedForm(70304); // '70000 + 300 + 4'
